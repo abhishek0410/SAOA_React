@@ -1,0 +1,1 @@
+1.) The files fuel.js and car.js are just here to illustrate how to do modularity in java script.
