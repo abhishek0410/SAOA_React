@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 
  class Counter extends Component{
+<<<<<<< HEAD
  state = {
      count : 1,  
  }
@@ -9,6 +10,14 @@ import React , {Component} from 'react';
         <div>
         <span class={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button class  = "btn btn-secondary btn-sm">Increment</button>
+=======
+ 
+     render(){
+         return(
+        <div>
+        <h1>Hello World</h1>
+        <button>Increment</button>
+>>>>>>> parent of d8325e4... State added to the Counter class
         </div>
          );
      } 
