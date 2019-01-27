@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 
  class Counter extends Component{
 <<<<<<< HEAD
+<<<<<<< HEAD
  state = {
      count : 1,  
  }
@@ -15,6 +16,12 @@ import React , {Component} from 'react';
      render(){
          return(
         <div>
+=======
+ 
+     render(){
+         return(
+        <div>
+>>>>>>> parent of d8325e4... State added to the Counter class
         <h1>Hello World</h1>
         <button>Increment</button>
 >>>>>>> parent of d8325e4... State added to the Counter class
