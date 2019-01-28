@@ -3,7 +3,7 @@ import React , {Component} from "react";
 
 class Counter extends Component{
     state = {
-        count : 0,
+     
     }
     handleIncrement = () =>{
         console.log("In the handleIncrememnt function");
@@ -12,6 +12,7 @@ class Counter extends Component{
     }
 
     render(){
+        console.log(this.props);
         return(<div>
 
           <span class="badge badge-secondary">{this.state.count}</span>
