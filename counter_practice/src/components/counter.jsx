@@ -5,16 +5,16 @@ class Counter extends Component{
   
 
     state = {
-
+        value : 1 ,
     }
 
     handleIncrement=()=>{
-         console.log("Increment button clicked") ; }
+         this.setState({value:this.state.value+1})}
 
     render(){
         return( 
             <div>
-                <span class="badge badge-info">0</span>
+                <span class="badge badge-info">{this.state.value}</span>
                 <button onClick = {this.handleIncrement} type="button" class="btn btn-secondary">Increment</button>
             </div>
     );
