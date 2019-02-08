@@ -10,10 +10,17 @@ class Counters extends Component{
             {key:3,value : 3 }    
         ]
     }
+    handleReset(){
+        const counter_update = this.state.counters.map((temp)=>(
+            temp.value = 0
+        ))
+            //this.setState({counters : counter_update})
+            this.setState({counter_update});
+    }
     handleIncrement_2 =(counter_attributes)=>{
         const counter_update = this.state.counters.map((temp)=>{
-                        if(temp.key === counter_attributes.key){
-                            temp.value++;         
+            if(temp.key === counter_attributes.key){
+                temp.value++;         
                                     }                        
                                 })
         this.setState({counter_update});
@@ -27,14 +34,18 @@ class Counters extends Component{
     }
     render(){
         return(
-            this.state.counters.map((temp)=>(
-                <div>
+            <div>
+        <button onClick ={()=>this.handleReset()} type="button" class="btn btn-secondary">RESET</button>
+
+            {this.state.counters.map((temp)=>(
+               
                      <Counter key ={temp.key}  counter ={temp}
                       handleIncrement = {()=>{this.handleIncrement_2(temp)}}
                       handleDelete ={()=>{this.handleDelete_2(temp)}}></Counter>
-                </div>
                
-            ))
+            ))}
+            </div>
+               
         );
     }
 }
