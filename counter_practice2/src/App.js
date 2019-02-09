@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counters from './components/counters';
+import Navbar from './components/navbar';
 
 
 class App extends Component {
@@ -41,10 +42,8 @@ handleDelete_final =(counter_delete)=>{
   render() {
     return (
      <div>
-       <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">{this.state.counters.length}</a>
-</nav>
        
+       <Navbar total_counter = {this.state.counters.length}></Navbar>
        <Counters counters = {this.state.counters}
         handleReset_app={this.handleReset_final} 
        handleIncrement_app = {this.handleIncrement_final}
