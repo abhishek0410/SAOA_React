@@ -33,13 +33,17 @@ handleDelete_final =(counter_delete)=>{
         temp.key!==counter_delete.key       
 )
 )
-  this.setState({counters:counter_update});    
+  this.setState({counters:counter_update});  
+
 }
 
 
   render() {
     return (
      <div>
+       <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">{this.state.counters.length}</a>
+</nav>
        
        <Counters counters = {this.state.counters}
         handleReset_app={this.handleReset_final} 
