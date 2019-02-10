@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import {getMovies} from '../services/fakeMovieService';
 import { timeout } from 'q';
+import Like from './common/like';
 
 class Movies extends Component{
     state = {
@@ -23,7 +24,9 @@ class Movies extends Component{
                         <th>Genre</th>
                         <th>Stock</th>
                         <th>DailyRentalRate</th>
-                        <th>Delete</th>
+                        <th></th>
+                        {/* <th></th> */}
+                        {/* <th>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +38,7 @@ class Movies extends Component{
                             <td>{temp.genre.name}</td>
                             <td>{temp.numberInStock}</td>
                             <td>{temp.dailyRentalRate}</td>
+                            {/* <td><Like></Like></td> */}
                             <button onClick = {()=>this.handleDelete(temp._id)} type="button" class="btn btn-danger">Danger</button>
                         </tr>
                   
