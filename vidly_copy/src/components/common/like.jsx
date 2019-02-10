@@ -8,9 +8,15 @@ class Like extends Component{
     
 
     render(){
-        return(
+        let classes = "fa fa-heart"
+        if(!this.props.liked === true){
+            classes+= "-o"
+ 
+        } 
+               return(
             <div>
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                
+                <i onClick = {this.props.handleClicked_movies} class={classes} aria-hidden="true"></i>
             </div>
         );
     }

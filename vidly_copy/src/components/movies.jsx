@@ -13,6 +13,18 @@ class Movies extends Component{
          ) );
          this.setState({movies:movies_update});
     }
+
+    handleClicked = (movie)=>{
+         console.log("AGAIN In the handle function of the heart ",movie);
+        let movies_updated = this.state.movies.map((temp)=>{
+            if (temp._id===movie._id){
+                    temp.liked =!temp.liked
+            }
+            this.setState({movies_updated});
+
+        })
+        
+    }
     
     render(){
         
@@ -38,7 +50,7 @@ class Movies extends Component{
                             <td>{temp.genre.name}</td>
                             <td>{temp.numberInStock}</td>
                             <td>{temp.dailyRentalRate}</td>
-                            <td><Like onClick = {this.props.handleClick}></Like></td>
+                            <td><Like liked = {temp.liked} handleClicked_movies = {()=>this.handleClicked(temp)}></Like></td>
                             <button onClick = {()=>this.handleDelete(temp._id)} type="button" class="btn btn-danger">Danger</button>
                         </tr>
                   
