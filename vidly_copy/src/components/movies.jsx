@@ -38,7 +38,7 @@ class Movies extends Component{
                             <td>{temp.genre.name}</td>
                             <td>{temp.numberInStock}</td>
                             <td>{temp.dailyRentalRate}</td>
-                            <td><Like></Like></td>
+                            <td><Like onClick = {this.props.handleClick}></Like></td>
                             <button onClick = {()=>this.handleDelete(temp._id)} type="button" class="btn btn-danger">Danger</button>
                         </tr>
                   
