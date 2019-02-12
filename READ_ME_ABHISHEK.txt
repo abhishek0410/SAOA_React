@@ -1,8 +1,12 @@
-This read me contains the details about how the folders are organised/named . 
+This readme contains information about the branch which is "PRACTICE_VIDLY_APP_2".
+This branch has been obtained from checking out a commit from the branch 
+"PRACTICE_VIDLY_APP" . 
 
-1.)counter-app is covered under the lecture headings "Component"  , but we would name it "counter_app" to make it 
-in line with mosh - website.
+What do we already have in the branch "PRACTICE_VIDLY_APP_2" ?
+--> We already have the Vidly_app till a functional delete button .
 
-2.)The folder Starter code contains files that mosh uses in building the "vidly app".(See "3-components"-Lecture 15)
+What do we intend to do in the  branch "PRACTICE_VIDLY_APP_2" ?
+-->We plan to revise the "heart" icon and add the  "pagination " .
 
-3.)"Vidly_copy_2" exists because we could not revert "Vidly_copy" to an earlier commit. 
+This branch is for practice and once the above 2 are practiced , this branch would be 
+possibly discarded.
