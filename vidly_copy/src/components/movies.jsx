@@ -3,11 +3,13 @@ import {getMovies} from '../services/fakeMovieService';
 import { timeout } from 'q';
 import Like from './common/like';
 import Pagination from './common/pagination';
+import paginate from "../utils/paginate";
 
 class Movies extends Component{
     state = {
       movies : getMovies(),  
-      pageSize : 4 
+      pageSize : 4 ,
+      currentPage :1
     }
     handleDelete =(id) =>{
         const movies_update = this.state.movies.filter((temp)=>(
@@ -26,12 +28,12 @@ class Movies extends Component{
         })
     }
     handlePageChange =(page)=>{
-         console.log("Following page is clicked ",page )
+        this.setState({currentPage : page})
     }
 
     
     render(){
-        
+      const movies =   paginate(this.state.movies,this.state.currentPage,this.state.pageSize );
         return(
             <div>
             <table className="table">
@@ -47,7 +49,7 @@ class Movies extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.movies.map(
+                    {movies.map(
                         (temp)=>(
                             <tr>
                         

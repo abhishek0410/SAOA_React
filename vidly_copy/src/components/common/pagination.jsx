@@ -1,5 +1,6 @@
 import React , {Component} from "react";
 import _ from "lodash";
+import PropTypes from 'prop-types'; 
 class Pagination extends Component {
     state = {
       
