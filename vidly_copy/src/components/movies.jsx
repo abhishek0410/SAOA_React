@@ -2,10 +2,12 @@ import React , {Component} from 'react';
 import {getMovies} from '../services/fakeMovieService';
 import { timeout } from 'q';
 import Like from './common/like';
+import Pagination from './common/pagination';
 
 class Movies extends Component{
     state = {
       movies : getMovies(),  
+      pageSize : 4 
     }
     handleDelete =(id) =>{
         const movies_update = this.state.movies.filter((temp)=>(
@@ -21,14 +23,17 @@ class Movies extends Component{
                     temp.liked =!temp.liked
             }
             this.setState({movies_updated});
-
         })
-        
     }
+    handlePageChange =(page)=>{
+         console.log("Following page is clicked ",page )
+    }
+
     
     render(){
         
         return(
+            <div>
             <table className="table">
                 <thead>
                     <tr>
@@ -58,6 +63,10 @@ class Movies extends Component{
                     )}
                      </tbody>
             </table>
+            <Pagination itemsCount = {this.state.movies.length}
+             pageSize={this.state.pageSize}
+              onPageChange= {this.handlePageChange}></Pagination>
+            </div>
         );
     }
 }
