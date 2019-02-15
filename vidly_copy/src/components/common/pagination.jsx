@@ -3,13 +3,13 @@ import _ from 'lodash';
 class Pagination extends Component{
   
     state = {
-          
+        pageCount : 0, //Initialisation 
+        pages : 0 //Initialisation
     }
     pageTheory(){
         this.state.pageCount = Math.ceil(this.props.itemCount/this.props.pageSize);
-        this.state.pages = _.range(1,this.state.pageCount+1)
-      
-        
+        this.state.pages = _.range(1,this.state.pageCount+1) 
+     
     }
     render(){
         this.pageTheory();
