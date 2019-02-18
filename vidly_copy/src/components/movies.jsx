@@ -55,6 +55,8 @@ class Movies extends Component{
         this.state.movies = this.state.movies_copy;
 
         return(
+            <div>
+             
             <div className ="row">
             <div className="col-4">
             <ListGroup items = {this.state.genres} 
@@ -99,6 +101,7 @@ class Movies extends Component{
             </table>
 
             </div>
+             </div>
              </div>
         );
     }
