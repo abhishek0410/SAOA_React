@@ -1,9 +1,14 @@
 import React , {Component} from "react";
 import {getMovies} from "../services/fakeMovieService";
 import Like from './like';
+import Pagination from './pagination';
+import Paginate from "../utils/paginate";
 class Movies extends Component {
     state = {
-        movies : getMovies()
+        movies : getMovies(),
+        movies_count : getMovies().length,
+        num_of_movies_per_page : 4,
+        current_page : 1 //Default
     }
     handleDelete=(movie)=>{
         
@@ -25,8 +30,12 @@ class Movies extends Component {
         })
         this.setState({movie_update})
     }
+    handlepageChange=(page_number)=>{
+        this.setState({current_page:page_number})
+    }
     render(){
-        
+        const {movies,num_of_movies_per_page,current_page} = this.state;
+        const movies_on_current_page = Paginate(movies,current_page,num_of_movies_per_page);
         return(
             <div> 
             <table className ="table">
@@ -40,7 +49,7 @@ class Movies extends Component {
                         <th></th>
                     </tr>
                 </thead>
-                {this.state.movies.map((temp_movie)=>(
+                {movies_on_current_page.map((temp_movie)=>(
                         <tbody key ={temp_movie._id} >
                             <tr >
                                 <td>{temp_movie.title}</td>
@@ -49,13 +58,21 @@ class Movies extends Component {
                                 <td>{temp_movie.dailyRentalRate}</td>
                                 <td><Like handleLike={()=>this.toggleLike(temp_movie)} liked_or_not = {temp_movie.liked}></Like></td>
                                 <td>
-                                <button onClick={()=>this.handleDelete(temp_movie)}  type="button" className="btn btn-danger">Delete</button>  
+                                    <button onClick={()=>this.handleDelete(temp_movie)}  type="button" className="btn btn-danger">Delete</button>  
                                 </td>
+            
                             </tr>
                          </tbody>
                 ))}
-            </table>
+            </table> 
+            <Pagination movies_count = {this.state.movies_count}
+            num_of_movies_per_page = {this.state.num_of_movies_per_page}
+            changePage = {this.handlepageChange}
+            >
+
+            </Pagination>
         </div>
+  
         );
     }
 }
