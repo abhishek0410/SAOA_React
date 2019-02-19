@@ -14,10 +14,12 @@ class Movies extends Component {
     }
 
     toggleLike=(movie)=>{
-    console.log("Following movie clicked",movie.title);
+    console.log("Following movie clicked",movie.title," ");
+    
      const movie_update = this.state.movies.map((temp_movie)=>{
             if(movie._id===temp_movie._id){
-                movie.like_value = !movie.like_value
+                temp_movie.liked = !temp_movie.liked
+             //   console.log(temp_movie.liked)
          }
          
         })
@@ -45,7 +47,7 @@ class Movies extends Component {
                                 <td>{temp_movie.genre.name}</td>
                                 <td>{temp_movie.numberInStock}</td>
                                 <td>{temp_movie.dailyRentalRate}</td>
-                                <td><Like handleLike={()=>this.toggleLike(temp_movie)}></Like></td>
+                                <td><Like handleLike={()=>this.toggleLike(temp_movie)} liked_or_not = {temp_movie.liked}></Like></td>
                                 <td>
                                 <button onClick={()=>this.handleDelete(temp_movie)}  type="button" className="btn btn-danger">Delete</button>  
                                 </td>
