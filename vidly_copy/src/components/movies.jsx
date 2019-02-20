@@ -51,21 +51,26 @@ class Movies extends Component {
           return(
             <div className ="row">
                 <div className ="col-4">
-                    <ListGroup movieGenre = {getGenres} 
-                        handleListGroup={this.handleListGroup}>
-                    </ListGroup>
+                    <ListGroup 
+                        movieGenre = {getGenres} 
+                        handleListGroup={this.handleListGroup}
+                    />
                </div>
               
                 <div className ="col-1">
                      <div>
-                         <MoviesTable movies={movies} num_of_movies_per_page={num_of_movies_per_page} 
-                            current_page={current_page} handleDelete={this.handleDelete}
+                         <MoviesTable 
+                            movies={movies} 
+                            num_of_movies_per_page={num_of_movies_per_page} 
+                            current_page={current_page} 
+                            handleDelete={this.handleDelete}
                             toggleLike={this.toggleLike} 
-                        />
-                        <Pagination movies_count = {this.state.movies_count}
+                         />
+                        <Pagination 
+                            movies_count = {this.state.movies_count}
                             num_of_movies_per_page = {this.state.num_of_movies_per_page}
-                            changePage = {this.handlepageChange}>
-                        </Pagination>
+                            changePage = {this.handlepageChange} 
+                         />
                      </div>
                 </div>
 
