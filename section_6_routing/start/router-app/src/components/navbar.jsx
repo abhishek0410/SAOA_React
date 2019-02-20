@@ -1,22 +1,26 @@
-import React from "react";
+import React,{Component} from "react";
+import {Link,NavLink} from "react-router-dom";
 
-const NavBar = () => {
-  return (
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/products">Products</a>
-      </li>
-      <li>
-        <a href="/posts/2018/06">Posts</a>
-      </li>
-      <li>
-        <a href="/admin">Admin</a>
-      </li>
-    </ul>
-  );
-};
-
-export default NavBar;
+const Navbar =()=>{
+    return(
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <NavLink className="navbar-brand" to="/">Vidly</NavLink>
+          <button className="navbar-toggler" 
+                  type="button" 
+                  data-toggle="collapse"
+                  data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+      <NavLink className="nav-item nav-link active" to="/movies">Movies <span className="sr-only">(current)</span></NavLink>
+      <NavLink className="nav-item nav-link" to="/customers">Customer</NavLink>
+      <NavLink className="nav-item nav-link" to="/rentals">Rentals</NavLink>
+      
+    </div>
+  </div>
+</nav>
+    );
+  }
+export default Navbar;
