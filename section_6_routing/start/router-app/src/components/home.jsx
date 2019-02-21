@@ -1,7 +1,7 @@
 import React from "react";
-
+import LoginForm from "./loginForm";
 const Home = () => {
-  return <h1>Home</h1>;
+  return <LoginForm></LoginForm>;
 };
 
 export default Home;

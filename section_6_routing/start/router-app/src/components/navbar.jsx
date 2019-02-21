@@ -17,6 +17,7 @@ const Navbar =()=>{
       <NavLink className="nav-item nav-link active" to="/movies">Movies <span className="sr-only">(current)</span></NavLink>
       <NavLink className="nav-item nav-link" to="/customers">Customer</NavLink>
       <NavLink className="nav-item nav-link" to="/rentals">Rentals</NavLink>
+
       
     </div>
   </div>
