@@ -7,7 +7,10 @@ class LoginForm extends Component {
     account: { username: "", password: "" },
     errors: {}
   };
-
+  schema = {
+    username: Joi.string().required(),
+    password: Joi.string().required()
+  };
   handleChange = e => {
     console.log("We are in the handleChange");
     const account = { ...this.state.account };
@@ -17,13 +20,15 @@ class LoginForm extends Component {
   };
 
   validate = () => {
-    const errors = {};
+    const results = Joi.validate(this.state.account, this.schema, {
+      abortEarly: false
+    });
 
-    if (this.state.account.username.trim() === "") {
-      errors.username = "Username is required";
-    }
-    if (this.state.account.password.trim() === "") {
-      errors.password = "Password is required";
+    if (results.error === null) return "";
+
+    const errors = {};
+    for (let item of results.error.details) {
+      errors[item.path[0]] = item.message;
     }
     return errors;
   };
@@ -42,6 +47,18 @@ class LoginForm extends Component {
           <Input
             handleChange={this.handleChange}
             account={this.state.account}
+            htmlFor="username"
+            input_name="username"
+            id="username"
+            errors={this.state.errors.username}
+          />
+          <Input
+            handleChange={this.handleChange}
+            account={this.state.account}
+            htmlFor="password"
+            input_name="password"
+            id="password"
+            errors={this.state.errors.password}
           />
           <button className="btn btn-primary">Login</button>
         </form>

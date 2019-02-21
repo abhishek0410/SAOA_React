@@ -4,25 +4,20 @@ const Input = props => {
   return (
     <div>
       <div className="form group">
-        <label htmlFor="username">Username</label>
+        <label htmlFor={props.htmlFor}>{props.input_name}</label>
         <input
           onChange={props.handleChange}
-          value={props.account.username}
-          id="username"
+          value={props.account[props.id]}
+          id={props.id}
           type="text"
           className="form control"
         />
       </div>
-      <div className="form group">
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={props.handleChange}
-          value={props.account.password}
-          id="password"
-          type="text"
-          className="form control"
-        />
-      </div>
+      {props.errors && (
+        <div className="alert alert-danger">
+          <strong>{props.errors}</strong>
+        </div>
+      )}
     </div>
   );
 };
