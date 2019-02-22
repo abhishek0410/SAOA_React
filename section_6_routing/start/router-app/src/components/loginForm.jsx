@@ -60,7 +60,7 @@ class LoginForm extends Component {
             id="password"
             errors={this.state.errors.password}
           />
-          <button className="btn btn-primary">Login</button>
+          <button  className="btn btn-primary">Login</button>
         </form>
       </div>
     );
