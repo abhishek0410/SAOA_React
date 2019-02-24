@@ -45,9 +45,6 @@ class Movies extends Component {
     }
     this.setState({ movies: movies_filtered, current_page: 1 });
   };
-  handleonSort = path => {
-    this.setState({ sortColumn: { path: path, order: "asc" } });
-  };
 
   render() {
     const { movies, num_of_movies_per_page, current_page } = this.state;
